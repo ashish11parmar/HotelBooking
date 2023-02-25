@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config({path:'./config.env'});
 const authRoute = require('./routes/auth.js');
-const hotelsRoute = require('./routes/auth.js');
-const usersRoute = require('./routes/auth.js');
-const roomsRoute = require('./routes/auth.js');
+const hotelsRoute = require('./routes/hotels.js');
+const usersRoute = require('./routes/users.js');
+const roomsRoute = require('./routes/rooms.js');
 const app = express(); 
 
 // ==================================== //
@@ -35,6 +35,10 @@ const connect = async () => {
   app.use("/api/users", usersRoute);
   app.use("/api/hotels", hotelsRoute);
   app.use("/api/rooms", roomsRoute);
+
+  app.use((err, req, res, next)=>{
+    res.status(500).send('Hello error from middlewares')
+  });
 
 
   app.listen(PORT, () => {
