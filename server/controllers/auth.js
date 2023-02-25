@@ -53,12 +53,12 @@ const login = async(req, res, next)=>{
 
         const token  = jwt.sign({id: login._id, isAdmin:login.isAdmin},
             process.env.SECRET_KEY)
+            // console.log(token);
 
-        const {password, isAdmin} = login
-        res.cookie('jwtoken', token, {
-            expires: new Date(Date.now() + 25832000000),
-            httpOnly:true
-        }).status(200).json(login);
+            const { password, isAdmin, ...otherDetails } = login._doc;
+        res.cookie("access_token", token, {
+            httpOnly: true,
+          }).status(200).json(login);
         
     } catch (err) {
         next(err)

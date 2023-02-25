@@ -6,6 +6,7 @@ const authRoute = require('./routes/auth.js');
 const hotelsRoute = require('./routes/hotels.js');
 const usersRoute = require('./routes/users.js');
 const roomsRoute = require('./routes/rooms.js');
+const cookieParser = require('cookie-parser');
 const app = express(); 
 
 // ==================================== //
@@ -29,6 +30,7 @@ const connect = async () => {
   });
 
   //middlewares
+  app.use(cookieParser());
   app.use(express.json());
 
   app.use("/api/auth", authRoute);
@@ -37,7 +39,7 @@ const connect = async () => {
   app.use("/api/rooms", roomsRoute);
 
   app.use((err, req, res, next)=>{
-    res.status(500).send('Hello error from middlewares')
+    console.log(err);
   });
 
 
