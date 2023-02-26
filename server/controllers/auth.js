@@ -1,6 +1,8 @@
 const User = require('../models/User.js');
 const bcrypt = require('bcryptjs');
+const {createError} = require('../utils/error.js');
 const jwt = require('jsonwebtoken');
+
 
 
 
@@ -49,7 +51,7 @@ const  login = async (req, res, next) => {
   
       const token = jwt.sign(
         { id: user._id, isAdmin: user.isAdmin },
-        process.env.JWT
+        process.env.SECRET_KEY
       );
   
       const { password, isAdmin, ...otherDetails } = user._doc;
