@@ -6,12 +6,12 @@ const router = express.Router();
 //create user 
 router.post('/', createUser);
 
-router.get('/ashish', verifyToken, (req, res, next)=>{
-    res.send('Hello from jwttoken');
-})
-router.get('/ashish/:id', verifyAdmin, (req, res, next)=>{
-    res.send('Hello from admin..');
-})
+// router.get('/ashish', verifyToken, (req, res, next)=>{
+//     res.send('Hello from jwttoken');
+// })
+// router.get('/ashish/:id', verifyAdmin, (req, res, next)=>{
+//     res.send('Hello from admin..');
+// })
 
 //update user 
 router.put('/:id',verifyUser, updateUser);
