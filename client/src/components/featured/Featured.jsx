@@ -1,4 +1,5 @@
 import useFetch from "../../hooks/useFetch";
+import Spiner from "../spinner/Spinner";
 import "./featured.css";
 
 const Featured = () => {
@@ -9,8 +10,8 @@ const Featured = () => {
   return (
     <div className="featured">
       {loading ? (
-        "Loading please wait"
-      ) : error ? ("Error") : (
+        <Spiner/>
+      ) : (
         <>
           <div className="featuredItem">
             <img

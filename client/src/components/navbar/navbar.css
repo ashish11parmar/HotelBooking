@@ -1,0 +1,37 @@
+.navbar{
+    background-color:white;
+    border: 0.2px solid rgb(210, 206, 206);
+}
+
+/* .navbar-nav{
+    margin-left: auto !important;
+} */
+.logo{
+    margin-left: 50px;
+}
+.navbar-nav .nav-item{
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+.navbar-nav .nav-link{
+    display: inline-block;
+    position: relative;
+    color:#1231e0;
+}
+.navbar-nav .nav-link:after{
+    content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: 
+#0087ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.navbar-nav .nav-link:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}

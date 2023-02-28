@@ -1,4 +1,5 @@
 import useFetch from "../../hooks/useFetch";
+import Spiner from "../spinner/Spinner";
 import "./propertyList.css";
 
 const PropertyList = () => {
@@ -14,8 +15,8 @@ const PropertyList = () => {
   return (
     <div className="pList">
       {loading ? (
-        "loading"
-      ) : error ? ("Error") : (
+        <Spiner/>
+      ) : (
         <>
           {data &&
             images.map((img,i) => (
