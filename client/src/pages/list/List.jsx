@@ -7,6 +7,8 @@ import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
 import useFetch from "../../hooks/useFetch";
+import Spiner from "../../components/spinner/Spinner";
+import Error from "../../components/error/Error";
 
 const List = () => {
   const location = useLocation();
@@ -106,9 +108,9 @@ const List = () => {
             <button onClick={handleClick}>Search</button>
           </div>
           <div className="listResult">
-            {loading ? (
-              "loading"
-            ) : (
+          {loading ? (
+        <Spiner/>
+      ) : error ? (<Error/>) : (
               <>
                 {data.map((item) => (
                   <SearchItem item={item} key={item._id} />

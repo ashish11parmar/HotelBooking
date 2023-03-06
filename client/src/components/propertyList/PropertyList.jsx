@@ -1,4 +1,5 @@
 import useFetch from "../../hooks/useFetch";
+import Error from "../error/Error";
 import Spiner from "../spinner/Spinner";
 import "./propertyList.css";
 
